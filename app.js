@@ -4,6 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var expressSession = require('express-session');
+var mongoStore = require('connect-mongo')({session: expressSession});
+var mongoose = require('mongoose');
+require('./models/user_model.js');
+var conn = mongoose.connect('mongodb://localhost/myapp', { useMongoClient: true });
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
