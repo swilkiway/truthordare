@@ -1,0 +1,17 @@
+var crypto = require('crypto');
+var mongoose = require('mongoose'),
+    User = mongoose.model('User');
+exports.signin = function(req, res){
+var user = new User({username:req.body.username});
+user.save(function(err) {
+if (err){
+req.session.error = err;
+res.redirect('/signup');
+} else {
+req.session.user = user.id;
+req.session.username = user.username;
+req.session.msg = 'Your name is ' + user.username;
+res.redirect('/');
+}
+});
+};
