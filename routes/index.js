@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var expressSession = require('express-session');
-var users = require('../controllers/user_controller');
 
-/* GET home page. */
+var users = require('../controllers/user_controller');
+console.log("before / Route");
 router.get('/', function(req, res){
     console.log("/ Route");
 //    console.log(req);
@@ -16,7 +16,7 @@ router.get('/', function(req, res){
     } else {
       console.log("/ Route else user");
       req.session.msg = 'Access denied!';
-      res.redirect('/signin');
+      res.redirect('/login');
     }
 });
 router.get('/user', function(req, res){
@@ -25,18 +25,34 @@ router.get('/user', function(req, res){
       res.render('user', {msg:req.session.msg});
     } else {
       req.session.msg = 'Access denied!';
-      res.redirect('/signin');
+      res.redirect('/login');
     }
 });
-router.get('/signin',  function(req, res){
-    console.log("/signin Route");
+router.get('/signup', function(req, res){
+    console.log("/signup Route");
     if(req.session.user){
       res.redirect('/');
     }
-    res.render('signin', {msg:req.session.msg});
+    res.render('signup', {msg:req.session.msg});
 });
-
-router.post('/signin', users.signin);
+router.get('/login',  function(req, res){
+    console.log("/login Route");
+    if(req.session.user){
+      res.redirect('/');
+    }
+    res.render('login', {msg:req.session.msg});
+});
+router.get('/logout', function(req, res){
+    console.log("/logout Route");
+    req.session.destroy(function(){
+      res.redirect('/login');
+    });
+  });
+router.post('/signup', users.signup);
+router.post('/user/update', users.updateUser);
+router.post('/user/delete', users.deleteUser);
+router.post('/login', users.login);
 router.get('/user/profile', users.getUserProfile);
+
 
 module.exports = router;
