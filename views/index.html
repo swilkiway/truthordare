@@ -23,10 +23,16 @@
 <script src="javascripts/script.js"></script>
 </head>
 
+<<<<<<< HEAD
 <body: background-color: black >
 <h1>You are logged in as <%= username%></h1>
 <h2>
 
+=======
+<body>
+<h1>You are logged in as<div ng-model="user.username"><%= username%></div></h1>
+<div ng-controller="dareController">
+>>>>>>> 2cb28c219ddaaa84a68f0d743a2b5134f11771c5
 <form novalidate class="simple-form">
   Dare: <input type="text" ng-model="user.chat" /><br />
   <input type="submit" ng-click="update(user)" value="Submit" />
@@ -36,7 +42,7 @@
 <br>Current Dares:
 <ul>
 <li ng-repeat='line in chats'>
-{{line.from}} - {{line.body}}
+{{line.from}} - {{line.body}} </br>
 </li>
 </ul>
 </div>
