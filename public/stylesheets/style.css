@@ -6,7 +6,9 @@ body {
   color: red;
   background-size: 25%;
 }
-
+input {
+	color:red;
+}
 h1 {
 	color: red;
 }
@@ -26,7 +28,7 @@ ul {
     display:inline-block;
 }
 li {
-color: blue;
+color: red;
 margin: 0 auto;
 text-align: center;
 display:inline-block;
