@@ -1,5 +1,5 @@
-angular.module('myApp', ["firebase"]).
-  controller('dareController', ['$scope', '$http', '$firebaseArray',
+angular.module('myApp', []).
+  controller('dareController', ['$scope', '$http', 
                               function($scope, $http) {
     $http.get('/user/profile')
         .success(function(data, status, headers, config) {
@@ -10,14 +10,5 @@ angular.module('myApp', ["firebase"]).
       $scope.user = {};
       $scope.error = data;
     });
-  },function($scope, $firebaseArray) {
-   var ref = firebase.database().ref().child("dares")
-   $scope.dare = $firebaseArray(ref);
-   $scope.update = function(user) {
-       var newmessage = {from:user.name || "anonymous",body:user.dare};
-       console.log(newmessage);
-       $scope.dare.$add(newmessage);
-       $scope.currentDare.setInnerHTML(newmessage);
-       user.dare = "";
-   }
- }]);
+  }
+ ]);
