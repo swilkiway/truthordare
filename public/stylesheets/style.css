@@ -1,9 +1,18 @@
 body {
-  padding: 50px;
+  padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: yellow;
+  background-image: url("https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/hostedimages/1380383375i/741562.jpg");
+  color: green;
+  background-size: 25252525252525252525252525252525252525252525252525%;
 }
 
+h1 {
+	color: red;
+}
+h2 {
+        color: red;
+}
 input {
   color:#FFFF11;
   background-color:#FF1234;
