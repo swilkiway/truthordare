@@ -1,6 +1,7 @@
 <!doctype html>
 <html ng-app="myApp">
 <head>
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
 <script>
 // Initialize Firebase
@@ -23,14 +24,15 @@ firebase.initializeApp(config);
 
 <body>
 <h1>You are logged in as <%= username%></h1>
-<div ng-controller="dareController">
+<h2>
+
 <form novalidate class="simple-form">
-  Name: <input type="text" ng-model="user.name" /><br />
-  Chat: <input type="text" ng-model="user.chat" /><br />
-  <input type="submit" ng-click="update(user)" value="Save" />
+  Dare: <input type="text" ng-model="user.chat" /><br />
+  <input type="submit" ng-click="update(user)" value="Submit" />
+  
 </form>
 <ul>
-<li ng-repeat='line in chats'>
+Current Dares: <li ng-repeat='line in chats'>
 {{line.from}} - {{line.body}}
 </li>
 </ul>
