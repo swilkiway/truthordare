@@ -31,11 +31,9 @@
   Dare: <input type="text" ng-model="user.dare" /><br />
   <input type="submit" ng-click="update(user)" value="Save" />
 </form>
-<ul>
-<li ng-repeat='line in chats'>
-{{line.from}} - {{line.body}}
-</li>
-</ul>
+<div ng-model="currentDare">
+No current dare
+</div>
 </div>
 <a id="logoutLink" href="/logout">logout</a>
 
