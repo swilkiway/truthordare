@@ -9,3 +9,10 @@ input {
   background-color:#FF1234;
   border-radius:12px;
 }
+
+ul {
+    color: blue;
+    margin: 0 auto;
+    text-align: center;
+    display:inline-block;
+}
