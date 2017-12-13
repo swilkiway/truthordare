@@ -16,3 +16,9 @@ ul {
     text-align: center;
     display:inline-block;
 }
+li {
+color: blue;
+margin: 0 auto;
+text-align: center;
+display:inline-block;
+}
