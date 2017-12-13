@@ -4,8 +4,20 @@ var expressSession = require('express-session');
 var users = require('../controllers/user_controller');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', function(req, res){
+    console.log("/ Route");
+//    console.log(req);
+    console.log(req.session);
+    if (req.session.user) {
+      console.log("/ Route if user");
+      res.render('index', {username: req.session.username,
+                           msg:req.session.msg,
+                           });
+    } else {
+      console.log("/ Route else user");
+      req.session.msg = 'Access denied!';
+      res.redirect('/signin');
+    }
 });
 router.get('/user', function(req, res){
     console.log("/user Route");
@@ -25,5 +37,6 @@ router.get('/signin',  function(req, res){
 });
 
 router.post('/signin', users.signin);
+router.get('/user/profile', users.getUserProfile);
 
 module.exports = router;

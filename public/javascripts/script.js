@@ -1,5 +1,5 @@
 angular.module('myApp', []).
-  controller('myController', ['$scope', '$http',
+  controller('dareController', ['$scope', '$http',
                               function($scope, $http) {
     $http.get('/user/profile')
         .success(function(data, status, headers, config) {

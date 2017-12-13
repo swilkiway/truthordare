@@ -24,11 +24,11 @@
 
 <body>
 <div ng-controller="dareController">
-
-<div ng-controller="chatController">
+<h2 id="welcomeText">Welcome. You are Logged In as
+            <%= username %>
+        </h2>
 <form novalidate class="simple-form">
-  Name: <input type="text" ng-model="user.name" /><br />
-  Chat: <input type="text" ng-model="user.chat" /><br />
+  Dare: <input type="text" ng-model="user.dare" /><br />
   <input type="submit" ng-click="update(user)" value="Save" />
 </form>
 <ul>
