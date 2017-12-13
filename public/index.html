@@ -23,8 +23,6 @@
 </head>
 
 <body>
-<div ng-controller="dareController">
-
 <div ng-controller="chatController">
 <form novalidate class="simple-form">
   Name: <input type="text" ng-model="user.name" /><br />
@@ -32,7 +30,7 @@
   <input type="submit" ng-click="update(user)" value="Save" />
 </form>
 <ul>
-<li ng-repeat='line in chats'>
+<li ng-repeat='line in chats' layout-align layout="column" layout-align="center end">
 {{line.from}} - {{line.body}}
 </li>
 </ul>
